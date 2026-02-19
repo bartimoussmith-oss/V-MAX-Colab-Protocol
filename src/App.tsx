@@ -22,7 +22,8 @@ const App: React.FC = () => {
         const response = await fetch('/arrest_data.csv');
         if (!response.ok) throw new Error("Hardline failed");
         const csvText = await response.text();
-        const rows = csvText.split('\n').slice(1); // THIS IS THE CORRECT ESCAPING FOR THE PYTHON STRING
+        const rows = csvText.split('
+').slice(1);
 
         const allRecords = rows.map((row, index) => {
           const cols = row.split(',');
